@@ -1,7 +1,7 @@
 import './bottle.css'
-// eslint-disable-next-line react/prop-types
-export default function Bottle({bottle}) {
-    // eslint-disable-next-line react/prop-types
+
+export default function Bottle({bottle, handleAddToCard}) {
+    
     const {name, img, price, ratings}= bottle;
   return (
     <div className='bottle'>
@@ -9,6 +9,7 @@ export default function Bottle({bottle}) {
         <img className="width" src={img} alt="" />
         <p>Price : {price}</p>
         <p><small>{ratings}</small></p>
+        <button onClick={()=>handleAddToCard(bottle)}>Purchase</button>
     </div>
   )
 }
