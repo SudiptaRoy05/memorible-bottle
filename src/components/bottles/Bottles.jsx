@@ -16,7 +16,15 @@ export default function Bottles() {
   useEffect(() => {
     if (bottles.length > 0) {
       const storedCart = getStoredCart();
-      console.log(storedCart);
+      //   console.log(storedCart);
+      const savedCard = [];
+      for (const id of storedCart) {
+        const bottle = bottles.find((bottle) => bottle.id === id);
+        if (bottle) {
+          savedCard.push(bottle);
+        }
+      }
+      setCart(savedCard);
     }
   }, [bottles]);
 
